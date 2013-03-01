@@ -6,8 +6,9 @@ from pymongo import Connection
 app = Flask(__name__)
 
 def mongo_db():
-    if os.environ.get('MONGOHQ_URL'):
-        connection = Connection(os.environ['MONGOHQ_URL'])
+    MONGO_URL = os.environ.get('MONGOHQ_URL')
+    if MONGO_URL:
+        connection = Connection(MONGO_URL)
         return connection[urlparse(MONGO_URL).path[1:]]
     else:
         connection = Connection()
