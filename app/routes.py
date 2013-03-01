@@ -1,6 +1,7 @@
 from flask import Flask, url_for, Response, request
 import pymongo
 import os
+from urlparse import urlparse
 from pymongo import Connection
 app = Flask(__name__)
 
