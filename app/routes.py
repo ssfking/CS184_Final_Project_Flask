@@ -134,7 +134,7 @@ def api_userAdd():
 
 @app.route('/user/username', methods = ['GET'])
 def api_userAdd()
-  print(request.headers)
+  #print(request.headers)
   if request.headers['Content-Type'].find('application/json') < 0:
     returnObj = {'result':'failure', 'errorMessage':'Request content type is incorrect.'}
     js = json.dumps(returnObj)
