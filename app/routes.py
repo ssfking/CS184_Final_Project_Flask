@@ -27,7 +27,7 @@ def api_root():
   return 'Welcome'
 
 @app.route('/data/add', methods = ['POST'])
-def api_message():
+def api_dataAdd():
   print("inside add")
   if request.headers['Content-Type'].find('application/json') > -1:
     data = request.json
@@ -55,12 +55,12 @@ def api_message():
     return resp  	
 
 @app.route('/user/add', methods = ['POST'])
-def api_message()
+def api_userAdd()
   if request.headers['Content-Type'].find('application/json') > -1:
     data = request.json
     print(data)
     db = mongo_db()
-    if 'username' in data && 'password' in data:
+    if 'username' in data and 'password' in data:
       print("went through username/password test")
       username = data['username']
       password = data['password']
