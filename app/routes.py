@@ -94,15 +94,13 @@ def api_userAdd():
 
 @app.route('/user/login', methods = ['GET'])
 def api_userAdd():
-  data = request.json
-  print(data)
-  if 'username' not in data or 'password' not in data:
+  if 'username' not in request.args or 'password' not in request.args:
     returnObj = {'result':'failure', 'errorMessage':'Username/ password attribute not provided.'}
     js = json.dumps(returnObj)
     return Response(js, status=200, mimetype='application/json')
   print("went through username/password test")
-  username = data['username']
-  password = data['password']
+  username = request.args['username']
+  password = request.args['password']
   if (len(username) < 3):
     returnObj = {'result':'failure', 'errorMessage':'Username length must be at least 3.'}
     js = json.dumps(returnObj)
@@ -130,14 +128,12 @@ def api_userAdd():
 
 @app.route('/user/username', methods = ['GET'])
 def api_userAdd():
-  data = request.json
-  print(data)
-  if 'username' not in data:
+  if 'username' not in request.args:
     returnObj = {'result':'failure', 'errorMessage':'Username attribute not provided.'}
     js = json.dumps(returnObj)
     return Response(js, status=200, mimetype='application/json')
   print("went through username test")
-  username = data['username']
+  username = request.args['username']
   if (len(username) < 3):
     returnObj = {'result':'failure', 'errorMessage':'Username length must be at least 3.'}
     js = json.dumps(returnObj)
