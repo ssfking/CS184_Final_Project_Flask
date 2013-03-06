@@ -54,7 +54,7 @@ def api_dataAdd():
     resp = Response(status=200)
     return resp  	
 
-@app.route('/user/add', methods = ['POST'])
+@app.route('/user/add', methods = ['GET'])
 def api_userAdd():
   if request.headers['Content-Type'].find('application/json') > -1:
     data = request.json
@@ -75,7 +75,7 @@ def api_userAdd():
       Users = db.Users
       print("Old number of records:"+ str(Users.count()))
       print(Users.find_one())
-      if (Users.find({"username": username}).count() <= 0):
+      if (Users.find({"username": username}).count() > 0):
         returnObj = {'result':'failure', 'ErrorMessage':'Username has already been taken.'}
         js = json.dump(returnObj)
         return Response(js, status=200, mimetype='application/json')
