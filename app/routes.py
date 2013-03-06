@@ -119,7 +119,7 @@ def api_userAdd():
   Users = db.Users
   print("Old number of records:"+ str(Users.count()))
   print(Users.find_one())
-  user  = Users.find_one({"username": username}
+  user  = Users.find_one({"username": username})
   if (user is None):
     returnObj = {'result':'failure', 'errorMessage':'Username does not exist.'}
     js = json.dumps(returnObj)
