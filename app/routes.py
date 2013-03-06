@@ -56,38 +56,112 @@ def api_dataAdd():
 
 @app.route('/user/add', methods = ['POST'])
 def api_userAdd():
-  if request.headers['Content-Type'].find('application/json') > -1:
-    data = request.json
-    print(data)
-    db = mongo_db()
-    if 'username' in data and 'password' in data:
-      print("went through username/password test")
-      username = data['username']
-      password = data['password']
-      if (len(username) < 3):
-        returnObj = {'result':'failure', 'ErrorMessage':'Username length must be at least 3.'}
-        js = json.dumps(returnObj)
-        return Response(js, status=200, mimetype='application/json')
-      if (len(password) < 5):
-        returnObj = {'result':'failure', 'ErrorMessage':'Password length must be at least 3.'}
-        js = json.dumps(returnObj)
-        return Response(js, status=200, mimetype='application/json')
-      Users = db.Users
-      print("Old number of records:"+ str(Users.count()))
-      print(Users.find_one())
-      if (Users.find({"username": username}).count() > 0):
-        returnObj = {'result':'failure', 'ErrorMessage':'Username has already been taken.'}
-        js = json.dumps(returnObj)
-        return Response(js, status=200, mimetype='application/json')
-      id = Users.insert(data)
-      print (id)
-      print("New number of records:"+ str(Users.count()))
-      returnObj = {'result':'success'}
-      js = json.dumps(returnObj)    
-      resp = Response(js, status=200, mimetype='application/json')
-      return resp
-    resp = Response(status=200, mimetype='application/json')
+  if request.headers['Content-Type'].find('application/json') <= 0:
+    returnObj = {'result':'failure', 'errorMessage':'Request content type is incorrect.'}
+    js = json.dumps(returnObj)
+    return Response(js, status=200, mimetype='application/json')
+  data = request.json
+  print(data)
+  if 'username' not in data or 'password' not in data:
+    returnObj = {'result':'failure', 'errorMessage':'Username/ password attribute not provided.'}
+    js = json.dumps(returnObj)
+    return Response(js, status=200, mimetype='application/json')
+  print("went through username/password test")
+  username = data['username']
+  password = data['password']
+  if (len(username) < 3):
+    returnObj = {'result':'failure', 'errorMessage':'Username length must be at least 3.'}
+    js = json.dumps(returnObj)
+    return Response(js, status=200, mimetype='application/json')
+  if (len(password) < 5):
+    returnObj = {'result':'failure', 'errorMessage':'Password length must be at least 3.'}
+    js = json.dumps(returnObj)
+    return Response(js, status=200, mimetype='application/json')
+  db = mongo_db()
+  Users = db.Users
+  print("Old number of records:"+ str(Users.count()))
+  print(Users.find_one())
+  if (Users.find({"username": username}).count() > 0):
+    returnObj = {'result':'failure', 'errorMessage':'Username has already been taken.'}
+    js = json.dumps(returnObj)
+    return Response(js, status=200, mimetype='application/json')
+  id = Users.insert(data)
+  print (id)
+  print("New number of records:"+ str(Users.count()))
+  returnObj = {'result':'success'}
+  js = json.dumps(returnObj)    
+  return Response(js, status=200, mimetype='application/json')
+
+@app.route('/user/login', methods = ['GET'])
+def api_userAdd():
+  if request.headers['Content-Type'].find('application/json') <= 0:
+    returnObj = {'result':'failure', 'errorMessage':'Request content type is incorrect.'}
+    js = json.dumps(returnObj)
+    return Response(js, status=200, mimetype='application/json')
+  data = request.json
+  print(data)
+  if 'username' not in data or 'password' not in data:
+    returnObj = {'result':'failure', 'errorMessage':'Username/ password attribute not provided.'}
+    js = json.dumps(returnObj)
+    return Response(js, status=200, mimetype='application/json')
+  print("went through username/password test")
+  username = data['username']
+  password = data['password']
+  if (len(username) < 3):
+    returnObj = {'result':'failure', 'errorMessage':'Username length must be at least 3.'}
+    js = json.dumps(returnObj)
+    return Response(js, status=200, mimetype='application/json')
+  if (len(password) < 5):
+    returnObj = {'result':'failure', 'errorMessage':'Password length must be at least 3.'}
+    js = json.dumps(returnObj)
+    return Response(js, status=200, mimetype='application/json')
+  db = mongo_db()
+  Users = db.Users
+  print("Old number of records:"+ str(Users.count()))
+  print(Users.find_one())
+  user  = Users.find_one({"username": username}
+  if (user is None):
+    returnObj = {'result':'failure', 'errorMessage':'Username does not exist.'}
+    js = json.dumps(returnObj)
+    return Response(js, status=200, mimetype='application/json')
+  if (password != user['password']):
+    returnObj = {'result':'failure', 'errorMessage':'Password is incorrect'}
+    js = json.dumps(returnObj)
+    return Response(js, status=200, mimetype='application/json')
+  returnObj = {'result':'success'}
+  js = json.dumps(returnObj)    
+  return Response(js, status=200, mimetype='application/json')
+
+@app.route('/user/username', methods = ['GET'])
+def api_userAdd():
+  if request.headers['Content-Type'].find('application/json') < 0:
+    returnObj = {'result':'failure', 'errorMessage':'Request content type is incorrect.'}
+    js = json.dumps(returnObj)
+    return Response(js, status=200, mimetype='application/json')
+  data = request.json
+  print(data)
+  if 'username' not in data:
+    returnObj = {'result':'failure', 'errorMessage':'Username attribute not provided.'}
+    js = json.dumps(returnObj)
+    return Response(js, status=200, mimetype='application/json')
+  print("went through username test")
+  username = data['username']
+  if (len(username) < 3):
+    returnObj = {'result':'failure', 'errorMessage':'Username length must be at least 3.'}
+    js = json.dumps(returnObj)
+    return Response(js, status=200, mimetype='application/json')
+  db = mongo_db()
+  Users = db.Users
+  print("Old number of records:"+ str(Users.count()))
+  print(Users.find_one())
+  if (Users.find({"username": username}).count() <= 0):
+    returnObj = {'result':'failure', 'errorMessage':'Username does not exist.'}
+    js = json.dumps(returnObj)    
+    resp = Response(js, status=200, mimetype='application/json')
     return resp
+  returnObj = {'result':'success'}
+  js = json.dumps(returnObj)
+  return Response(js, status=200, mimetype='application/json')
 
 if __name__ == '__main__':
   # Bind to PORT if defined, otherwise default to 5000.
