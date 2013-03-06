@@ -66,24 +66,24 @@ def api_userAdd():
       password = data['password']
       if (len(username) < 3):
         returnObj = {'result':'failure', 'ErrorMessage':'Username length must be at least 3.'}
-        js = json.dump(returnObj)
+        js = json.dumps(returnObj)
         return Response(js, status=200, mimetype='application/json')
       if (len(password) < 5):
         returnObj = {'result':'failure', 'ErrorMessage':'Password length must be at least 3.'}
-        js = json.dump(returnObj)
+        js = json.dumps(returnObj)
         return Response(js, status=200, mimetype='application/json')
       Users = db.Users
       print("Old number of records:"+ str(Users.count()))
       print(Users.find_one())
       if (Users.find({"username": username}).count() > 0):
         returnObj = {'result':'failure', 'ErrorMessage':'Username has already been taken.'}
-        js = json.dump(returnObj)
+        js = json.dumps(returnObj)
         return Response(js, status=200, mimetype='application/json')
       id = Users.insert(data)
       print (id)
       print("New number of records:"+ str(Users.count()))
       returnObj = {'result':'success'}
-      js = json.dump(returnObj)    
+      js = json.dumps(returnObj)    
       resp = Response(js, status=200, mimetype='application/json')
       return resp
     resp = Response(status=200, mimetype='application/json')
