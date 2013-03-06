@@ -94,10 +94,6 @@ def api_userAdd():
 
 @app.route('/user/login', methods = ['GET'])
 def api_userAdd():
-  if request.headers['Content-Type'].find('application/json') < 0:
-    returnObj = {'result':'failure', 'errorMessage':'Request content type is incorrect.'}
-    js = json.dumps(returnObj)
-    return Response(js, status=200, mimetype='application/json')
   data = request.json
   print(data)
   if 'username' not in data or 'password' not in data:
@@ -134,11 +130,6 @@ def api_userAdd():
 
 @app.route('/user/username', methods = ['GET'])
 def api_userAdd():
-  print(request.headers)
-  if request.headers['Content-Type'].find('application/json') < 0:
-    returnObj = {'result':'failure', 'errorMessage':'Request content type is incorrect.'}
-    js = json.dumps(returnObj)
-    return Response(js, status=200, mimetype='application/json')
   data = request.json
   print(data)
   if 'username' not in data:
