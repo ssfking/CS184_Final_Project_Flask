@@ -54,7 +54,7 @@ def api_dataAdd():
     resp = Response(status=200)
     return resp  	
 
-@app.route('/user/add', methods = ['GET'])
+@app.route('/user/add', methods = ['POST'])
 def api_userAdd():
   if request.headers['Content-Type'].find('application/json') > -1:
     data = request.json
