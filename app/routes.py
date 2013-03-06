@@ -93,7 +93,7 @@ def api_userAdd():
   return Response(js, status=200, mimetype='application/json')
 
 @app.route('/user/login', methods = ['GET'])
-def api_userAdd():
+def api_userLogin():
   if 'username' not in request.args or 'password' not in request.args:
     returnObj = {'result':'failure', 'errorMessage':'Username/ password attribute not provided.'}
     js = json.dumps(returnObj)
@@ -127,7 +127,7 @@ def api_userAdd():
   return Response(js, status=200, mimetype='application/json')
 
 @app.route('/user/username', methods = ['GET'])
-def api_userAdd():
+def api_userUsername():
   if 'username' not in request.args:
     returnObj = {'result':'failure', 'errorMessage':'Username attribute not provided.'}
     js = json.dumps(returnObj)
