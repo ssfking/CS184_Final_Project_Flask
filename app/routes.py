@@ -56,7 +56,7 @@ def api_dataAdd():
 
 @app.route('/user/add', methods = ['POST'])
 def api_userAdd():
-  if request.headers['Content-Type'].find('application/json') <= 0:
+  if request.headers['Content-Type'].find('application/json') < 0:
     returnObj = {'result':'failure', 'errorMessage':'Request content type is incorrect.'}
     js = json.dumps(returnObj)
     return Response(js, status=200, mimetype='application/json')
@@ -94,7 +94,7 @@ def api_userAdd():
 
 @app.route('/user/login', methods = ['GET'])
 def api_userAdd():
-  if request.headers['Content-Type'].find('application/json') <= 0:
+  if request.headers['Content-Type'].find('application/json') < 0:
     returnObj = {'result':'failure', 'errorMessage':'Request content type is incorrect.'}
     js = json.dumps(returnObj)
     return Response(js, status=200, mimetype='application/json')
@@ -133,7 +133,8 @@ def api_userAdd():
   return Response(js, status=200, mimetype='application/json')
 
 @app.route('/user/username', methods = ['GET'])
-def api_userAdd():
+def api_userAdd()
+  print(request.headers)
   if request.headers['Content-Type'].find('application/json') < 0:
     returnObj = {'result':'failure', 'errorMessage':'Request content type is incorrect.'}
     js = json.dumps(returnObj)
