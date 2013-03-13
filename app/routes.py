@@ -1,154 +1,48 @@
-from flask import Flask, url_for, Response, request, json
+from flask import Flask, url_for, Response, request, json, render_template
 import pymongo
 import os
 from urlparse import urlparse
 from pymongo import Connection
+from pymongo.errors import InvalidId
 app = Flask(__name__)
 
 def mongo_db():
-    MONGO_URL = os.environ.get('MONGOHQ_URL')
-    if MONGO_URL:
-        connection = Connection(MONGO_URL)
-        return connection[urlparse(MONGO_URL).path[1:]]
-    else:
-        connection = Connection()
-        return connection['MyDB']
+  MONGO_URL = os.environ.get('MONGOHQ_URL')
+  if MONGO_URL:
+    connection = Connection(MONGO_URL)
+    return connection[urlparse(MONGO_URL).path[1:]]
+  else:
+    connection = Connection()
+    return connection['MyDB']
 
 @app.route('/')
-def api_root():
-  print "in root\n"
-  db = mongo_db()
-    
-  CoreLocations = db.CoreLocations
-  location = [{"hi":"spencer", "sup":"not much"},{"hi":"spencer2", "sup":"not much2"}]
-  id = CoreLocations.insert(location)
-  print(location)
-  print(id)
-  return 'Welcome'
+def root():
+  return render_template('home.html')
 
-@app.route('/data/add', methods = ['POST'])
-def api_dataAdd():
-  print("inside add")
-  if request.headers['Content-Type'].find('application/json') > -1:
-    data = request.json
-    print(data)
-    db = mongo_db()
-    if 'CoreLocation' in data:
-      print("In CoreLocation")
-      location = data['CoreLocation']
-      CoreLocations = db.CoreLocations
-      print("Old number of records:"+ str(CoreLocations.count()))
-      print(CoreLocations.find_one())
-      id = CoreLocations.insert(location)
-      print (id)
-      print("New number of records:"+ str(CoreLocations.count()))
-    if 'CoreMotion' in data:
-      print("In CoreMotion")
-      motion = data['CoreMotion']
-      CoreMotions = db.CoreMotions
-      print("Old number of records:" + str(CoreMotions.count()))
-      print(CoreMotions.find_one())
-      id = CoreMotions.insert(motion)
-      print(id)
-      print("New number of records:" + str(CoreMotions.count()))
-    resp = Response(status=200)
-    return resp  	
+@app.route('/login')
+def login():
+  return render_template('login.html')
 
-@app.route('/user/add', methods = ['POST'])
-def api_userAdd():
-  if request.headers['Content-Type'].find('application/json') < 0:
-    returnObj = {'result':'failure', 'errorMessage':'Request content type is incorrect.'}
-    js = json.dumps(returnObj)
-    return Response(js, status=200, mimetype='application/json')
-  data = request.json
-  print(data)
-  if 'username' not in data or 'password' not in data:
-    returnObj = {'result':'failure', 'errorMessage':'Username/ password attribute not provided.'}
-    js = json.dumps(returnObj)
-    return Response(js, status=200, mimetype='application/json')
-  print("went through username/password test")
-  username = data['username']
-  password = data['password']
-  if (len(username) < 3):
-    returnObj = {'result':'failure', 'errorMessage':'Username length must be at least 3.'}
-    js = json.dumps(returnObj)
-    return Response(js, status=200, mimetype='application/json')
-  if (len(password) < 5):
-    returnObj = {'result':'failure', 'errorMessage':'Password length must be at least 3.'}
-    js = json.dumps(returnObj)
-    return Response(js, status=200, mimetype='application/json')
+
+@app.route('/api/widget/userInfo/<userId>', methods= ['GET'])
+def api_userInfo(userId):
   db = mongo_db()
   Users = db.Users
   print("Old number of records:"+ str(Users.count()))
-  print(Users.find_one())
-  if (Users.find({"username": username}).count() > 0):
-    returnObj = {'result':'failure', 'errorMessage':'Username has already been taken.'}
+  objectId = 0;
+  try:
+    objectId = ObjectId(userId)
+  except InvalidId:
+    returnObj = {'result':'failure', 'errorMessage':'Invalid userId'}
     js = json.dumps(returnObj)
     return Response(js, status=200, mimetype='application/json')
-  id = Users.insert(data)
-  print (id)
-  print("New number of records:"+ str(Users.count()))
-  returnObj = {'result':'success'}
-  js = json.dumps(returnObj)    
-  return Response(js, status=200, mimetype='application/json')
-
-@app.route('/user/login', methods = ['GET'])
-def api_userLogin():
-  if 'username' not in request.args or 'password' not in request.args:
-    returnObj = {'result':'failure', 'errorMessage':'Username/ password attribute not provided.'}
-    js = json.dumps(returnObj)
-    return Response(js, status=200, mimetype='application/json')
-  print("went through username/password test")
-  username = request.args['username']
-  password = request.args['password']
-  if (len(username) < 3):
-    returnObj = {'result':'failure', 'errorMessage':'Username length must be at least 3.'}
-    js = json.dumps(returnObj)
-    return Response(js, status=200, mimetype='application/json')
-  if (len(password) < 5):
-    returnObj = {'result':'failure', 'errorMessage':'Password length must be at least 3.'}
-    js = json.dumps(returnObj)
-    return Response(js, status=200, mimetype='application/json')
-  db = mongo_db()
-  Users = db.Users
-  print("Old number of records:"+ str(Users.count()))
-  print(Users.find_one())
-  user  = Users.find_one({"username": username})
+  user = Users.find_one({"_id": objectId})
   if (user is None):
     returnObj = {'result':'failure', 'errorMessage':'Username does not exist.'}
     js = json.dumps(returnObj)
-    return Response(js, status=200, mimetype='application/json')
-  if (password != user['password']):
-    returnObj = {'result':'failure', 'errorMessage':'Password is incorrect'}
-    js = json.dumps(returnObj)
-    return Response(js, status=200, mimetype='application/json')
+    return Response(js, status=200, mimetype='application/json')  
   returnObj = {'result':'success'}
   js = json.dumps(returnObj)    
-  return Response(js, status=200, mimetype='application/json')
-
-@app.route('/user/username', methods = ['GET'])
-def api_userUsername():
-  if 'username' not in request.args:
-    returnObj = {'result':'failure', 'errorMessage':'Username attribute not provided.'}
-    js = json.dumps(returnObj)
-    return Response(js, status=200, mimetype='application/json')
-  print("went through username test")
-  username = request.args['username']
-  if (len(username) < 3):
-    returnObj = {'result':'failure', 'errorMessage':'Username length must be at least 3.'}
-    js = json.dumps(returnObj)
-    return Response(js, status=200, mimetype='application/json')
-  db = mongo_db()
-  Users = db.Users
-  print("Old number of records:"+ str(Users.count()))
-  print(Users.find_one())
-  if (Users.find({"username": username}).count() <= 0):
-    returnObj = {'result':'failure', 'errorMessage':'Username does not exist.'}
-    js = json.dumps(returnObj)    
-    resp = Response(js, status=200, mimetype='application/json')
-    return resp
-  returnObj = {'result':'success'}
-  js = json.dumps(returnObj)
   return Response(js, status=200, mimetype='application/json')
 
 if __name__ == '__main__':
