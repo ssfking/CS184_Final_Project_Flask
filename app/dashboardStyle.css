@@ -1,0 +1,44 @@
+.headerContainer > .nav-pills{
+	float: right;
+	vertical-align: middle;
+}
+
+ul.nav li.dropdown:hover > ul.dropdown-menu{
+    display: block;    
+}
+
+.nav-pills>.active>a:hover {
+	color: gray;
+	background-color: #f1f0f1;
+}
+
+
+.nav-pills>.active>a, .nav-pills>.active>a:focus {
+	background-color: gray;
+}
+
+.headerContainer > .nav-pills .dropdown-toggle {
+	color: white;
+}
+
+.headerContainer > .nav-pills .caret {
+	border-top-color: white;
+}
+
+.well {
+	font-family: 'Heiti TC';
+}
+
+iframe {
+	display: block;
+	margin: 0 auto;
+}
+
+h1 {
+	font-size: 30px;
+}
+
+textarea {
+	display: block;
+	margin: 10px 0px 10px 40px !important;
+}

@@ -1,0 +1,36 @@
+hr.style-one {
+	margin-bottom: 20px;
+}
+
+.alert {
+	font-family: Helvetica Neue;
+}
+
+.alert hr {
+	border: 0;
+	color: black;
+	height: 1px;
+	background-color: #3a87ad;
+	margin: 10px auto;
+}
+
+textarea {
+	margin: 0 !important;
+}
+
+.inlineHeader {
+	display: inline-block;
+}
+
+h4 .label {
+	font-family: Helvetica Neue;
+	vertical-align: middle;
+	margin: 4px 0;
+}
+
+.alert .btn {
+	float: right;
+}
+.well .breadcrumb {
+	margin: 0;
+}
