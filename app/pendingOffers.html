@@ -1,0 +1,97 @@
+<html>
+	<head>
+		<title>Consultr.io - Pending Offers</title>
+		<meta charset="UTF-8">
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script src="static/js/bootstrap.js"></script>
+		<link rel='stylesheet' type='text/css' href='static/css/bootstrap.min.css'>
+		<link rel='stylesheet' type='text/css' href='static/css/home.css'>
+		<link rel='stylesheet' type='text/css' href='dashboardStyle.css'>
+		<link rel='stylesheet' type='text/css' href='pendingOffers.css'>
+	</head>
+	<body>
+		<div class='headerBackboard'></div>
+		<header class='transprHeader'>
+			<div class='headerContainer'>
+				<h1>Consultr.io</h1>
+				<p>The world's first and only online consultation market.</p>
+				<ul class="nav nav-pills">
+  					<li class="dropdown active">
+    					 <a id="drop1" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">Balaji Srinvisian <b class="caret"></b></a>
+                      <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="http://google.com">Settings</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#anotherAction">Help</a></li>
+                        <li role="presentation" class="divider"></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Log Out</a></li>
+                      </ul>
+  					</li>
+				</ul>
+			</div>
+		</header>
+		<div class='container'>
+			<br>
+			<div class='row-fluid'>
+				<div class='span3'>
+					<ul class="well nav nav-list" style="margin-bottom: 18px;">
+			    		<li class="">
+						    <a href="/dashboard.html"><i class='icon-list-alt'></i> Dashboard</a>
+						</li>
+						    
+						<li class="active">
+						    <a href="/buys"><i class='icon-exclamation-sign'></i> 	Pending Offers</a>
+						</li>
+						    
+						<li class="">
+						    <a href="/payment_methods"><i class='icon-tasks'></i> Edit RateCard</a>
+						</li>
+						<li class="">
+						    <a href="/account"><i class='icon-user dark'></i> Edit Profile</a>
+						</li>
+					</ul>
+				</div>
+				<div class='span9'>
+					<div class='well'>
+						<div class='currContent'>
+							<h2 class="inlineHeader">Pending Offers: 2</h2>
+							<ul class="breadcrumb" style='float:right'>
+							  <li>Order by<span class="divider"></span></li>
+							  <li><a href="#">Due Date</a> <span class="divider">/</span></li>
+							  <li><a href="#">Payment</a> <span class="divider">/</span></li>
+							  <li class="active">Newest</li>
+							</ul> 
+							<hr class="style-one">
+							<div class="alert alert-info alert-block">
+							  <h4>Resume Evaluation - $50</h4>
+							  <hr>
+							  <h4>From: Janet Levinson - Groupon</h4>
+							  <h4>Date: 02/13/13</h4>
+							  <h4>Message:</h4>
+							  <textarea rows='6'class='span12'>Dear Mr. Haggerty,
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ac arcu metus, sit amet varius dolor. Aliquam laoreet, mauris non molestie ultrices, ante libero commodo enim, ut venenatis odio sapien et odio. Nulla sem lectus, posuere eget tempor sed, feugiat eget est. Suspendisse non lacus vel sem molestie sodales quis vitae est. Aliquam a nunc convallis est convallis hendrerit quis nec nunc. Aenean laoreet nulla in eros bibendum vitae euismod orci viverra. Cras imperdiet, justo dapibus posuere viverra, nisi justo condimentum risus, id eleifend purus urna sed justo. Fusce sodales ante nec nisi suscipit sit amet cursus odio congue. Sed sit amet enim lectus, quis mollis metus. Etiam interdum, sem ac tincidunt vestibulum, lorem leo fringilla dui, sed vestibulum sem elit id velit. Duis scelerisque augue mattis turpis varius sit amet vulputate dui scelerisque. Suspendisse tempus scelerisque faucibus. Nullam arcu ante, lacinia nec rhoncus et, congue vel tellus.
+							  </textarea>
+							  <hr>
+							  <h4 class='inlineHeader'>Payment: <span class='label label-success'>Confirmed</span></h4>
+								<h4 class='inlineHeader'>Status: <span class='label label-important'>Incomplete</span></h4>
+							<button class='btn btn-primary'>Follow Up</button>
+							</div>
+							<div class="alert alert-info alert-block">
+							  <h4>Expert Witness - $500</h4>
+							  <hr>
+							  <h4>From: Barack Obama - US Gov.</h4>
+							  <h4>Date: 01/14/13</h4>
+							  <h4>Message:</h4>
+							  <textarea rows='6'class='span12'>Dear Mr. Haggerty,
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ac arcu metus, sit amet varius dolor. Aliquam laoreet, mauris non molestie ultrices, ante libero commodo enim, ut venenatis odio sapien et odio. Nulla sem lectus, posuere eget tempor sed, feugiat eget est. Suspendisse non lacus vel sem molestie sodales quis vitae est. Aliquam a nunc convallis est convallis hendrerit quis nec nunc. Aenean laoreet nulla in eros bibendum vitae euismod orci viverra. Cras imperdiet, justo dapibus posuere viverra, nisi justo condimentum risus, id eleifend purus urna sed justo. Fusce sodales ante nec nisi suscipit sit amet cursus odio congue. Sed sit amet enim lectus, quis mollis metus. Etiam interdum, sem ac tincidunt vestibulum, lorem leo fringilla dui, sed vestibulum sem elit id velit. Duis scelerisque augue mattis turpis varius sit amet vulputate dui scelerisque. Suspendisse tempus scelerisque faucibus. Nullam arcu ante, lacinia nec rhoncus et, congue vel tellus.
+							  </textarea>
+							  <hr>
+							  <h4 class='inlineHeader'>Payment: <span class='label label-important'>Unconfirmed</span></h4>
+								<h4 class='inlineHeader'>Status: <span class='label label-important'>Incomplete</span></h4>
+							<button class='btn btn-primary'>Follow Up</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
