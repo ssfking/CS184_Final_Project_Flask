@@ -1,0 +1,152 @@
+
+
+#consultrContainer {
+	position: relative !important;
+	width: 184px !important; 
+	height: 340px !important; 
+	border: 1px solid #aeadad !important;  
+	background-color: #cbcbcb !important; 
+	border-radius: 20px !important;
+    padding: 0 !important;
+    border: 0 !important;
+    vertical-align: middle !important;
+    text-align: left !important; 
+    border: 1px solid #aeadad !important;
+    font-family: Helvetica Neue !important;
+    font-size: 14px !important;
+    margin-left: 3px !important;
+}
+
+#consultrContainer h1, #consultrContainer h2, #consultrContainer h3, #consultrContainer h4, #consultrContainer h5, #consultrContainer h6, #consultrContainer p{
+	font-family: Helvetica Neue !important;
+	color: black !important;
+	text-align: left !important;
+}
+
+#consultrContainer #consultrHeader {
+	border-top-right-radius: 20px !important;
+	border-top-left-radius: 20px !important;;
+	width: 100% !important;
+	height: 20% !important;
+	padding: 4px !important;
+	-webkit-box-sizing: border-box !important;
+	-moz-box-sizing: border-box !important;    
+	box-sizing: border-box !important;
+}
+
+#consultrContainer #consultrProfileHeader {
+	border-top-right-radius: 15px !important;
+	border-top-left-radius: 15px !important;
+	border: 1px solid #aeadad !important;
+	font-weight: bold !important;
+	background-image: url('static/img/consultrBGPattern.png') !important;
+	vertical-align: middle !important;
+}
+
+#consultrContainer #consultrProfilePhoto {
+	border-top-left-radius: 15px !important;
+	border-right: 1px solid #aeadad !important;
+	height: 100% !important;
+	display: inline-block !important;
+
+}
+
+#consultrContainer #consultrTabPane {
+	width: 100% !important;
+	height: 8% !important;
+}
+
+#consultrContainer .consultrTabItem {
+	height: 100% !important;
+	width: 32% !important;
+	display: table-cell !important;
+	text-align: center !important;
+	line-height: 27px !important;
+	font-size: 70% !important;
+	border-top-left-radius: 5px !important;
+	border-top-right-radius: 5px !important;
+	display: inline-block !important;
+	-webkit-box-sizing: border-box !important;
+	-moz-box-sizing: border-box !important;    
+	box-sizing: border-box !important;
+}
+
+#consultrContainer .active, #consultrContainer .consultrTabItem:hover {
+	border-top: 1px solid #aeadad !important;
+	border-left: 1px solid #aeadad !important;
+	border-right: 1px solid #aeadad !important;
+	border-bottom: 1px solid #e5e5e5 !important;
+	background-color: #e5e5e5 !important;
+	cursor: pointer !important;
+}
+
+#consultrContainer #consultrContentContainer {
+	width: 100% !important;
+	height: 65% !important;
+	background-color: #f2f2f2 !important;
+	overflow: scroll !important;
+	border-top: 1px solid #aeadad !important;
+	border-bottom: 1px solid #aeadad !important;
+}
+
+#consultrContainer .rateItem {
+	width: 100% !important;
+	padding: 5% 0px !important;
+	border-bottom: 1px solid #aeadad !important;
+	display: table !important;
+
+}
+
+#consultrContainer .consultrBtn {
+	width: 60% !important;
+	display: inline-block !important;
+	margin-left: 3px !important;
+}	
+
+#consultrContainer .consultrItemDescription {
+	width: 50% !important;
+	text-align: right !important;
+	display: table-cell !important;
+	font-family: Helvetica Neue !important;
+	font-weight: bold !important;
+	font-size: 70% !important;
+	line-height: 85% !important;
+	vertical-align: middle !important;
+	padding-right: 5px !important;
+	-webkit-box-sizing: border-box !important;
+	-moz-box-sizing: border-box !important;    
+	box-sizing: border-box !important;
+}
+
+#consultrContainer .rateItem:hover {
+	background-color: white !important;
+}
+
+#consultrContainer .consultrInvisible {
+	display: none !important;
+}
+
+#consultrContainer #consultrLogo {
+	width: 32% !important;
+	float: right !important;
+	margin-right: 5% !important;
+}
+
+#consultrContainer #consultrAboutMe {
+	padding: 8px !important; 
+	line-height: 150% !important;
+	font-size: 70% !important;
+
+}
+
+#consultrContainer #consultrContact {
+	padding: 16px !important;
+}
+
+#consultrContainer .consultrPopover {
+	line-height: 90% !important;
+	width: 130px !important; 
+	height: 60px !important;
+	overflow: scroll !important;
+
+}
