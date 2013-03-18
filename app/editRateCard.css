@@ -1,0 +1,44 @@
+.close {
+	position: absolute;
+	right: 0.7em;
+	top: 50%;
+	margin-top: -12px;
+}
+
+.centered {
+	text-align: center;
+}
+
+.addItemBtn, .saveChangesBtn {
+	position: absolute;
+	top: 8px;
+	z-index: 1;
+}
+
+.addItemBtn {
+	font-family: Helvetica Neue;
+	right: 8px;
+}
+
+.saveChangesBtn {
+	right: 115px;
+}
+
+.form-horizontal .control-label {
+	width: 180px;
+	padding-top: 5px;
+}
+
+.form-horizontal .controls {
+	margin-left: 190px;
+}
+
+.input-prepend .add-on {
+	font-family: Helvetica Neue;
+	height: 30px;
+}
+
+textarea {
+	margin: 0 !important;
+	width: 300px;
+}
