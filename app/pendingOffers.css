@@ -22,6 +22,10 @@ textarea {
 	display: inline-block;
 }
 
+.due-date {
+	float: right;
+}
+
 h4 .label {
 	font-family: Helvetica Neue;
 	vertical-align: middle;

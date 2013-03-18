@@ -1,0 +1,114 @@
+html {
+	height: 100%;
+	background: #e3e3e0;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover, a:active {
+	text-decoration: none;
+}
+
+* {
+	-moz-box-sizing: border-box;   
+    -webkit-box-sizing: border-box;   
+    box-sizing: border-box;  
+}
+
+#accordion {
+	width: 100%;
+}
+
+#accordion .ui-accordion-content {
+	margin: 0;
+	padding: 20px;
+	width: 100%;
+	background-color: white;
+	color: #777;
+	font-size: 10pt;
+	line-height: 16pt;
+	webkit-box-shadow: inset 0px 0px 8px 5px rgba(0, 0, 0, 0.1);
+	box-shadow: inset 0px 5px 15px 1px rgba(0, 0, 0, 0.1);
+	border-right: 1px solid rgba(58, 135, 173, .4);
+	border-left: 1px solid rgba(58, 135, 173, .4);
+}
+
+#accordion .ui-accordion-content a {
+	color: #777;
+}
+
+#accordion .ui-accordion-header, .rateEditHeader {
+	position: relative;
+	background-color: #ccc;
+	margin: 0px;
+	border-radius: 5px;
+}
+
+#accordion .ui-accordion-header {
+	background-color: #d1f0ff;
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fa9300', endColorstr='#dc621e',GradientType=0 ); /* IE6-9 */
+}
+
+.rateEditHeader {
+	background-color: #cbcbcb;
+}
+
+#accordion .ui-accordion-header a, .rateEditHeader h3 {
+	line-height: 42px;
+	display: block;
+	font-size: 12pt;
+	width: 100%;
+	padding-left: 18px;
+	text-indent: 10px;
+	border-radius: 5px;
+}
+
+#accordion .ui-accordion-header a {
+	color: #3a87ad;
+	border-right: 1px solid rgba(58, 135, 173, .4);
+	border-left: 2px solid rgba(58, 135, 173, .4);
+	border-bottom: 2px solid rgba(58, 135, 173, .4);
+	border-top: 1px solid rgba(250, 250, 250, .4);
+}
+
+.rateEditHeader h3 {
+	color: white;
+	border-right: 1px solid rgba(0, 0, 0, .2);
+	border-left: 2px solid rgba(0, 0, 0, .2);
+	border-bottom: 2px solid rgba(0, 0, 0, .2);
+	border-top: 1px solid rgba(250, 250, 250, .4);
+	display: inline-block;
+}
+
+.ui-icon {
+	position: absolute;
+	top: 0.8em;
+	left: 0.5em;
+	display: inline-block;
+	  width: 14px;
+	  height: 14px;
+	  margin-top: 1px;
+	  *margin-right: .3em;
+	  line-height: 14px;
+	  vertical-align: text-top;
+	  background-image: url("static/img/glyphicons-halflings-white.png");
+	  background-position: 14px 14px;
+	  background-repeat: no-repeat;
+}
+
+.ui-icon-circle-arrow-e {
+	background-position: -264px -96px;
+}
+
+.ui-icon-circle-arrow-s {
+	background-position: -312px -96px;
+}
+
+.icon-align-justify {
+	position: absolute;
+	right:10px;
+	top: 50%;
+	margin-top: -10px;
+}
