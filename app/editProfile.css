@@ -1,0 +1,83 @@
+h3 {
+	font-size: 24.5px;
+	display: inline-block;
+}
+
+hr.top-bar {
+	margin: 0 11px 11px 11px;
+}
+
+hr.bottom-bar {
+	margin: 11px;
+}
+
+.profile-section {
+	background-color: white;
+	width: 97%;
+	height: 128px;
+	margin: 0 11px;
+	padding: 4px;
+	border: 2px solid #cbcbcb;
+	overflow: scroll;
+
+}
+
+.profile-section img {
+	float: left;
+	margin-right: 10px;
+}
+
+.profile-section p  {
+	line-height: 25px;
+}
+
+.tags-section {
+	padding: 8px;
+
+}
+
+.tags-section p {
+	display: inline-block;
+	padding: 5px 8px;
+	margin: 2px 0;
+	border-radius: 4px;
+	background: rgb(235,241,246); /* Old browsers */
+	background: -moz-linear-gradient(top, rgba(235,241,246,1) 0%, rgba(171,211,238,1) 50%, rgba(137,195,235,1) 51%, rgba(213,235,251,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(235,241,246,1)), color-stop(50%,rgba(171,211,238,1)), color-stop(51%,rgba(137,195,235,1)), color-stop(100%,rgba(213,235,251,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, rgba(235,241,246,1) 0%,rgba(171,211,238,1) 50%,rgba(137,195,235,1) 51%,rgba(213,235,251,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, rgba(235,241,246,1) 0%,rgba(171,211,238,1) 50%,rgba(137,195,235,1) 51%,rgba(213,235,251,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, rgba(235,241,246,1) 0%,rgba(171,211,238,1) 50%,rgba(137,195,235,1) 51%,rgba(213,235,251,1) 100%); /* IE10+ */
+	background: linear-gradient(to bottom, rgba(235,241,246,1) 0%,rgba(171,211,238,1) 50%,rgba(137,195,235,1) 51%,rgba(213,235,251,1) 100%); /* W3C */
+
+	border-left: 1px solid #cbcbcb;
+	border-bottom: 1px solid #cbcbcb;
+}
+
+.editButton {
+	float: right;
+}
+
+* {
+	-moz-box-sizing: border-box;   
+    -webkit-box-sizing: border-box;   
+    box-sizing: border-box; 
+}
+
+div.new-section {
+	display:block;
+	margin: 0 auto 20px auto;
+	height: 100px;
+	width: 500px;
+	text-align: center;
+	background-color: #c9c9c9;
+	border: 5px dashed gray;
+	cursor: pointer;
+}
+
+div.new-section h3 {
+	margin-top: 28px;
+}
+
+div.new-section:hover, div.new-section:focus {
+	background-color: #cfcfcf;
+}
