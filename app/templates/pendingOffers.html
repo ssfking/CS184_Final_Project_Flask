@@ -3,11 +3,11 @@
 		<title>Consultr.io - Pending Offers</title>
 		<meta charset="UTF-8">
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-		<script src="static/js/bootstrap.js"></script>
-		<link rel='stylesheet' type='text/css' href='static/css/bootstrap.min.css'>
-		<link rel='stylesheet' type='text/css' href='static/css/home.css'>
-		<link rel='stylesheet' type='text/css' href='dashboardStyle.css'>
-		<link rel='stylesheet' type='text/css' href='pendingOffers.css'>
+		<script src="{{ url_for('static', filename='js/bootstrap.js') }}"></script>
+		<link rel='stylesheet' type='text/css' href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+		<link rel='stylesheet' type='text/css' href="{{ url_for('static', filename='css/home.css') }}">
+		<link rel='stylesheet' type='text/css' href="{{ url_for('static', filename='css/dashboardStyle.css') }}">
+		<link rel='stylesheet' type='text/css' href="{{ url_for('static', filename='css/pendingOffers.css') }}">
 	</head>
 	<body>
 		<div class='headerBackboard'></div>
@@ -34,18 +34,18 @@
 				<div class='span3'>
 					<ul class="well nav nav-list" style="margin-bottom: 18px;">
 			    		<li class="">
-						    <a href="/dashboard.html"><i class='icon-list-alt'></i> Dashboard</a>
+						    <a href="{{url_for('dashboard')}}"><i class='icon-list-alt'></i> Dashboard</a>
 						</li>
 						    
 						<li class="active">
-						    <a href="/buys"><i class='icon-exclamation-sign'></i> 	Pending Offers</a>
+						    <a href="#"><i class='icon-exclamation-sign'></i> 	Pending Offers</a>
 						</li>
 						    
 						<li class="">
-						    <a href="/payment_methods"><i class='icon-tasks'></i> Edit RateCard</a>
+						    <a href="{{url_for('editRateCard')}}"><i class='icon-tasks'></i> Edit RateCard</a>
 						</li>
 						<li class="">
-						    <a href="/account"><i class='icon-user dark'></i> Edit Profile</a>
+						    <a href="{{url_for('editProfile')}}"><i class='icon-user dark'></i> Edit Profile</a>
 						</li>
 					</ul>
 				</div>

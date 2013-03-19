@@ -39,7 +39,7 @@
 	border-top-left-radius: 15px !important;
 	border: 1px solid #aeadad !important;
 	font-weight: bold !important;
-	background-image: url('static/img/consultrBGPattern.png') !important;
+	background-image: url('../img/consultrBGPattern.png') !important;
 	vertical-align: middle !important;
 }
 

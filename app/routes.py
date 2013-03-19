@@ -1,4 +1,4 @@
-from flask import Flask, url_for, Response, request, json, render_template
+from flask import Flask, url_for, Response, request, json, render_template, redirect, url_for
 import pymongo
 import os
 from urlparse import urlparse
@@ -23,6 +23,62 @@ def root():
 def login():
   return render_template('login.html')
 
+@app.route('/signup')
+def signup():
+  return render_template('login.html')
+
+@app.route('/dashboard')
+def dashboard():
+  return render_template('dashboard.html')
+
+@app.route('/iframeTest')
+def iframeTest():
+  return render_template('iframeTest.html')
+
+@app.route('/pendingOffers')
+def pendingOffers():
+  return render_template('pendingOffers.html')
+
+@app.route('/editProfile')
+def editProfile():
+  return render_template('editProfile.html')
+
+@app.route('/editRateCard')
+def editRateCard():
+  return render_template('editRateCard.html')
+
+
+@app.route('/processLogin')
+def processLogin():
+  if 'email' not in request.args or 'password' not in request.args:
+    return redirect(url_for('login',status="Email and password are not provided."))
+  email = request.args['email']
+  password = request.args['password']
+  db = mongo_db()
+  Users = db.Users
+  user  = Users.find_one({"email": email})
+  if (user is None):
+    return redirect(url_for('login', status="Email does not exist."))
+  if (password != user['password']):
+    return redirect(url_for('login', status="Passowrd is incorrect."))
+  return redirect(url_for('dashboard'))
+
+@app.route('/processSignup')
+def processSignup():
+  if 'email' not in request.args or 'password' not in request.args:
+    return redirect(url_for('signup',status="Email and password are not provided."))
+  email = request.args['email']
+  password = request.args['password']
+  if (len(email) < 3):
+    return redirect(url_for('signup',status="Username length must be at least 3."))
+  if (len(password) < 5):
+    return redirect(url_for('signup',status="Password length must be at least 5."))
+  db = mongo_db()
+  Users = db.Users
+  if (Users.find({"email": email}).count() > 0):
+    return redirect(url_for('signup',status="Email has already been registered."))
+  id = Users.insert(data)
+  return redirect(url_for('dashboard'))
 
 @app.route('/api/widget/userInfo/<userId>', methods= ['GET'])
 def api_userInfo(userId):

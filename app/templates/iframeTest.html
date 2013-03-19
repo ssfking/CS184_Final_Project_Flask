@@ -2,10 +2,10 @@
 	<head>
 		<meta charset="UTF-8">
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-		<script src="consultr.js"></script>
-		<script src="static/js/bootstrap.js"></script>
-		<link rel='stylesheet' type='text/css' href='static/css/bootstrap.min.css'>
-		<link rel='stylesheet' type='text/css' href='consultr.css'>
+		<script src="{{ url_for('static', filename='js/consultr.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/bootstrap.js') }}"></script>
+		<link rel='stylesheet' type='text/css' href='{{ url_for('static', filename='css/bootstrap.min.css') }}'>
+		<link rel='stylesheet' type='text/css' href='{{ url_for('static', filename='css/consultr.css') }}'>
 	</head>
 	<body style='background-color: rgba(255, 255, 255, 0)'>
 		<div id="consultrContainer">
