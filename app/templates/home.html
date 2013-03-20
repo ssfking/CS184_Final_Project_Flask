@@ -5,54 +5,56 @@
 		<link rel='stylesheet' type='text/css' href="{{ url_for('static', filename='css/home.css') }}">
 	</head>
 	<body>
-		<div class='headerBackboard'></div>
-		<header class='transprHeader'>
-			<div class='headerContainer'>
-				<h1>Consultr.io</h1>
-				<p>The world's first and only online consultation marketplace.</p >
-				<button class='btn btn-inverse'>Sign Up</button>
-			</div>
-			<a href="{{ url_for('login') }}" id='loginLink'>LOG IN</a>
-		</header>
-		<div class='main-wrapper'>
-			<h1>Your expertise is worth more than you know.</h1>
-			<hr class='style-one'>
-			<div class='row' id='explanationDiv'>
-				<div class='span6'>
-						<img src="{{ url_for('static', filename='img/WidgetIcon.png') }}" width='70px'></img><div class='iconBullet'>
-					<h2>Create a fully customizable, embeddable RateCard widget in just a few clicks.</h2><br>
+		<div class='background'>
+			<div class='headerBackboard'></div>
+			<header class='transprHeader'>
+				<div class='headerContainer'>
+					<h1>Consultr.io</h1>
+					<p>The world's first and only online consultation marketplace.</p >
+					<button class='btn btn-inverse'>Sign Up</button>
+				</div>
+				<a href="{{ url_for('login') }}" id='loginLink'>LOG IN</a>
+			</header>
+			<div class='main-wrapper'>
+				<h1>Your expertise is worth more than you know.</h1>
+				<hr class='style-one'>
+				<div class='row' id='explanationDiv'>
+					<div class='span6'>
+							<img src="{{ url_for('static', filename='img/WidgetIcon.png') }}" width='70px'></img><div class='iconBullet'>
+						<h2>Create a fully customizable, embeddable RateCard widget in just a few clicks.</h2><br>
+						</div>
+							<img src="{{ url_for('static', filename='img/ContractIcon.png') }}" width='70px'></img><div class='iconBullet'>
+						<h2>Accept legally binding consulting offers right from your blog or website.</h2><br>
+						</div>
+							<img src="{{ url_for('static', filename='img/MoneyIcon.png') }}" width='70px'></img><div class='iconBullet'>
+							<h2>Receive compensation for your unique expertise and knowledge - at no personal expense.</h2>
+						</div>
 					</div>
-						<img src="{{ url_for('static', filename='img/ContractIcon.png') }}" width='70px'></img><div class='iconBullet'>
-					<h2>Accept legally binding consulting offers right from your blog or website.</h2><br>
-					</div>
-						<img src="{{ url_for('static', filename='img/MoneyIcon.png') }}" width='70px'></img><div class='iconBullet'>
-						<h2>Receive compensation for your unique expertise and knowledge - at no personal expense.</h2>
+					<div class='span3'>
+						<img src="{{ url_for('static', filename='img/consultrScreenshotCropped.png') }}" class='croppedImg'></img>
 					</div>
 				</div>
-				<div class='span3'>
-					<img src="{{ url_for('static', filename='img/consultrScreenshotCropped.png') }}" class='croppedImg'></img>
-				</div>
-			</div>
-			<div class="ribbon-wrapper">
-				<div class="ribbon-front">
-					<p>Need a second pair of eyes?</p>
-					<div class='input-append'>
-						<input type='text' class='input-xxlarge' id='appendedInputButton' placeholder='(Ex. Machine Learning Researcher, Angel Investment Evaluation)'>
-						<button class='btn btn-inverse btn-large' type='button'>Search</button>
+				<div class="ribbon-wrapper">
+					<div class="ribbon-front">
+						<p>Need a second pair of eyes?</p>
+						<div class='input-append'>
+							<input type='text' class='input-xxlarge' id='appendedInputButton' placeholder='(Ex. Machine Learning Researcher, Angel Investment Evaluation)'>
+							<button class='btn btn-inverse btn-large' type='button'>Search</button>
+						</div>
+						<p>Search our international database of researchers and experts.</p>
 					</div>
-					<p>Search our international database of researchers and experts.</p>
+					<div class="ribbon-edge-topleft"></div>
+					<div class="ribbon-edge-topright"></div>
+					<div class="ribbon-edge-bottomleft"></div>
+					<div class="ribbon-edge-bottomright"></div>
+					<div class="ribbon-back-left"></div>
+					<div class="ribbon-back-right"></div>
 				</div>
-				<div class="ribbon-edge-topleft"></div>
-				<div class="ribbon-edge-topright"></div>
-				<div class="ribbon-edge-bottomleft"></div>
-				<div class="ribbon-edge-bottomright"></div>
-				<div class="ribbon-back-left"></div>
-				<div class="ribbon-back-right"></div>
+				<center>
+					<h1>See it in action.</h1>
+					<iframe src="http://player.vimeo.com/video/61091143" width="700" height="393" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+				<center>
 			</div>
-			<center>
-				<h1>See it in action.</h1>
-				<iframe src="http://player.vimeo.com/video/61091143" width="700" height="393" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-			<center>
 		</div>
 		<div class='footer'>
 			<div class='footerContainer'>
@@ -62,5 +64,6 @@
 				- <a href='#'>Privacy Policy</a>
 			</div>
 		</div>
+		
 	</body>
 </html>

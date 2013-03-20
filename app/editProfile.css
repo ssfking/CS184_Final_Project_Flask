@@ -1,10 +1,9 @@
-h3 {
-	font-size: 24.5px;
+h4 {
 	display: inline-block;
 }
 
 hr.top-bar {
-	margin: 0 11px 11px 11px;
+	margin: 6px 11px 11px 11px;
 }
 
 hr.bottom-bar {
@@ -14,7 +13,7 @@ hr.bottom-bar {
 .profile-section {
 	background-color: white;
 	width: 97%;
-	height: 128px;
+	height: 100px;
 	margin: 0 11px;
 	padding: 4px;
 	border: 2px solid #cbcbcb;
@@ -28,7 +27,8 @@ hr.bottom-bar {
 }
 
 .profile-section p  {
-	line-height: 25px;
+	font-size: 14px;
+	line-height: 22px;
 }
 
 .tags-section {
@@ -54,6 +54,7 @@ hr.bottom-bar {
 }
 
 .editButton {
+	margin: -3px 10px 0 0;
 	float: right;
 }
 
@@ -74,8 +75,8 @@ div.new-section {
 	cursor: pointer;
 }
 
-div.new-section h3 {
-	margin-top: 28px;
+div.new-section h4 {
+	margin-top: 40px;
 }
 
 div.new-section:hover, div.new-section:focus {
