@@ -81,6 +81,32 @@ def processSignUp():
   id = Users.insert(data)
   return redirect(url_for('dashboard'))
 
+@app.route('/processRateCards', methods=['POST'])
+def processRateCards():
+  print("1")
+  data = request.json
+  print("2")
+  db = mongo_db()
+  RateCards = db.RateCards
+  RateCards.remove()
+  RateCards.insert(data)
+  returnObj = {'result':'success'}
+  js = json.dumps(returnObj)    
+  return Response(js, status=200, mimetype='application/json')
+
+@app.route('/api/rateCardInfo', methods= ['GET'])
+def api_rateCardInfo():
+  db = mongo_db()
+  RateCards = db.RateCards
+  rateCardArr = []
+  for rateCard in RateCards.find():
+    rateCard.pop("_id",None)
+    rateCardArr.append(rateCard)
+  print(rateCardArr)  
+  returnObj = {"result":"sucess", "name":"", "img":"", "email": "", "about_me": "", "consultr_items":rateCardArr}
+  js = json.dumps(returnObj)    
+  return Response(js, status=200, mimetype='application/json')
+
 @app.route('/api/widget/userInfo/<userId>', methods= ['GET'])
 def api_userInfo(userId):
   db = mongo_db()
