@@ -61,18 +61,18 @@
 					<div class='span3'>
 						<ul class="well nav nav-list" style="margin-bottom: 18px;">
 				    		<li class="active">
-							    <a href="/transactions"><i class='icon-list-alt'></i> Dashboard</a>
+							    <a href="#"><i class='icon-list-alt'></i> Dashboard</a>
 							</li>
 							    
 							<li class="">
-							    <a href="/buys"><i class='icon-exclamation-sign'></i> 	Pending Offers</a>
+							    <a href="{{url_for('pendingOffers') }}"><i class='icon-exclamation-sign'></i> 	Pending Offers</a>
 							</li>
 							    
 							<li class="">
-							    <a href="/payment_methods"><i class='icon-tasks'></i> Edit RateCard</a>
+							    <a href="{{url_for('editRateCard')}}"><i class='icon-tasks'></i> Edit RateCard</a>
 							</li>
 							<li class="">
-							    <a href="/account"><i class='icon-user dark'></i> Edit Profile</a>
+							    <a href="{{url_for('editProfile')}}"><i class='icon-user dark'></i> Edit Profile</a>
 							</li>
 						</ul>
 					</div>
@@ -94,7 +94,7 @@
 										<textarea readonly class='span9'rows='3'>&lt;script type="text/javascript" src="http://consultr.io/exampleAPI?id=abcdefhijklmnop"&gt;&lt;/script&gt;</textarea>
 									</div>
 									<div class='span5'>
-										<iframe src="iframeTest.html" width='190px' height='350px'></iframe>
+										<iframe src="{{url_for('iframeTest')}}" width='190px' height='350px'></iframe>
 									</div>
 								</div>
 							</div>

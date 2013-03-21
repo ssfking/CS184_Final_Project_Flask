@@ -23,9 +23,9 @@ def root():
 def login():
   return render_template('login.html')
 
-@app.route('/signup')
-def signup():
-  return render_template('login.html')
+@app.route('/signUp')
+def signUp():
+  return render_template('signUp.html')
 
 @app.route('/dashboard')
 def dashboard():
@@ -63,8 +63,8 @@ def processLogin():
     return redirect(url_for('login', status="Passowrd is incorrect."))
   return redirect(url_for('dashboard'))
 
-@app.route('/processSignup')
-def processSignup():
+@app.route('/processSignUp')
+def processSignUp():
   if 'email' not in request.args or 'password' not in request.args:
     return redirect(url_for('signup',status="Email and password are not provided."))
   email = request.args['email']
@@ -77,6 +77,7 @@ def processSignup():
   Users = db.Users
   if (Users.find({"email": email}).count() > 0):
     return redirect(url_for('signup',status="Email has already been registered."))
+  data = {"email": email, "password" : password}
   id = Users.insert(data)
   return redirect(url_for('dashboard'))
 
