@@ -1,0 +1,28 @@
+.well {
+	margin-top: 50px;
+}
+
+.well h3 {
+	font-size: 24.5px;
+	margin-left: 11px;
+}
+
+label {
+	font-size: 14px;
+}
+
+hr.top-bar {
+	margin: 6px 11px 20px 11px;
+}
+
+hr.bottom-bar {
+	margin: 11px;
+}
+
+.form-horizontal {
+	margin: 20px 0 0 10px;
+}
+
+.pager > li > a:hover {
+	background-color: #d6d6d6;
+}

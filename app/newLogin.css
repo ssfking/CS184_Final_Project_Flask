@@ -1,0 +1,11 @@
+.form-horizontal {
+	margin: 30px auto;
+}
+
+.form-horizontal input[type='text'], .form-horizontal input[type='password'] {
+	height: 29px;
+}
+
+.form-horizontal button {
+	margin-top: 10px;
+}
