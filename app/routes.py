@@ -47,7 +47,6 @@ def editProfile():
 def editRateCard():
   return render_template('editRateCard.html')
 
-
 @app.route('/processLogin')
 def processLogin():
   if 'email' not in request.args or 'password' not in request.args:
@@ -62,6 +61,10 @@ def processLogin():
   if (password != user['password']):
     return redirect(url_for('login', status="Passowrd is incorrect."))
   return redirect(url_for('dashboard'))
+
+@app.route('/rateCardEmbed')
+def rateCardEmbed():
+  return redirect(url_for('static', filename='js/embed.js'))
 
 @app.route('/processSignUp')
 def processSignUp():
