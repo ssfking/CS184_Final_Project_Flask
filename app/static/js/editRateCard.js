@@ -21,10 +21,11 @@ $(document).ready(function() {
 	    };
 	$.getJSON('/api/rateCardInfo', function(danielHaggerty) {
 		$('#accordion').hide();
-		$.each(danielHaggerty.consultr_items[0].consultr_items, function (index, value) {
-			addItem(value.title, value.price, value.tagline, value.description, "", {prepend: false});
-		})
-		
+		if (danielHaggerty.length != 0) {
+			$.each(danielHaggerty.consultr_items[0].consultr_items, function (index, value) {
+				addItem(value.title, value.price, value.tagline, value.description, "", {prepend: false});
+			})
+		}
 		$('#accordion').fadeIn('slow').accordion({
 			icons: icons,
 			header: "> div > h3",
