@@ -4,7 +4,7 @@ if (typeof jQuery == 'undefined') {
 	fileref.setAttribute("src", "http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js");
 	fileref.setAttribute("onload", "embedDiv()");
 	document.getElementsByTagName("head")[0].appendChild(fileref);
-}
+} else embedDiv();
 
 function embedDiv() {
 	$(document).ready(function() {
