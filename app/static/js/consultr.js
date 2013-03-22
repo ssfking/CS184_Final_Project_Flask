@@ -29,7 +29,7 @@ $(document).ready(function () {
 			$(tabContainers[$(this).text()]).removeClass('consultrInvisible');
 		});
 		$('.consultrBtn').click(function () {
-			var currItem = getItem(danielHaggerty.consultr_items, $(this).siblings('.consultrItemDescription').html());
+			var currItem = getItem(danielHaggerty.consultr_items[0].consultr_items, $(this).siblings('.consultrItemDescription').html());
 			$(window.parent.renderModal(".my-modal-class", currItem, {width: "500px"}));
 		})
 	});
