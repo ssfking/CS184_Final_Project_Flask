@@ -6,7 +6,15 @@
 		<script src="{{ url_for('static', filename='js/consultr.js') }}"></script>
 		<script src="{{ url_for('static', filename='js/bootstrap.js') }}"></script>
 		<script type='text/javascript'>
-			function renderModal(selector, html, options) {
+			function generateModalContent(selector, item) {
+				var header = '<div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h3>' + item.title +  ' <span class="divider">/</span> <a href="#" class="disabled">' + item.price + '</a></div>';
+		                var body = '<div class="modal-body">' + item.long_description + '</div>';
+	   	   	        var footer = "<div class='modal-footer'><form action='' method='POST'><script src='https://checkout.stripe.com/v2/checkout.js' class='stripe-button'";
+			        footer += "data-key='pk_test_HGPEf0bMInAJeRJRwUFxxjpZ' data-amount='2000' data-name='Demo Site' data-description='2 widgets ($20.00)' ";
+				footer += "data-image='\/128x128.png'><\/script></form></div>";
+			       return header + body + footer;
+			}
+			function renderModal(selector, item, options) {
 			  var parent = "body",
 			      $this = $(parent).find(selector);
 
@@ -15,11 +23,12 @@
 
 			  if ($this.length == 0) {
 			    var selectorArr = selector.split(".");
-			    var $wrapper = $('<div class="modal hide fade ' + selectorArr[selectorArr.length-1] + '"></div>').append(html);
+			    var $wrapper = $('<div class="modal hide fade ' + selectorArr[selectorArr.length-1] + '"></div>');
+			    $wrapper.append(generateModalContent(selector, item));
 			    $this = $wrapper.appendTo(parent);
 			    $this.modal();
 			  } else {
-			    $this.html(html).modal("show");
+			    $this.html(generateModalContent(selector, item)).modal("show");
 			  }
 
 			  $this.css({
@@ -28,7 +37,10 @@
 			      return -($(this).width() / 2);
 			    }
 			  });
+
 			}
+			
+		
 		</script>
 		<link rel='stylesheet' type='text/css' href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
 		<link rel='stylesheet' type='text/css' href="{{ url_for('static', filename='css/home.css') }}">

@@ -58,10 +58,35 @@ $(document).ready(function() {
 		collapsible: true
 		});
 	});
-	$('.group button').click(function () {
+	$('div').delegate('.group button', 'click', function () {
 		$(this).parent().parent().parent().remove();
 	});
 	$('.saveChangesBtn').click(function () {
+		 var data = {};
+		 data.consultr_items = new Array();
+		 $('.group').each(function () {
+		 	var item = {};
+			var title = $(this).find('h3').text();
+		 	title = title.substring(0, title.length - 1);
+		 	item.title = title;
+		 	var price = $(this).find('#inputPrice')[0].value;
+		 	item.price = '$' + price;
+		 	data.consultr_items.push(item);
+		 })
+		 $.ajax({
+		        type: "POST",
+		        //the url where you want to sent the userName and password to
+		        contentType: 'application/json',
+		        url: '/processRateCards',
+		        dataType: 'json',
+		        async: false,
+		        //json object to sent to the authentication url
+		        data: JSON.stringify(data),
+		        success: function () {
+
+		        alert("Thanks!"); 
+		        }
+		    });
 		$("<div class='alert alert-info'>Changes Saved</div>").hide().prependTo('.currContent').fadeIn('slow').delay(3000).fadeOut('slow');
 	});
 });

@@ -85,7 +85,7 @@ def processSignUp():
 def processRateCards():
   print("1")
   data = request.json
-  print("2")
+  print(data)
   db = mongo_db()
   RateCards = db.RateCards
   RateCards.remove()

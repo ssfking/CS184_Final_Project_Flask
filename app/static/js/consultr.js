@@ -46,7 +46,7 @@ function getItem(items, title) {
 				});
 				$('.consultrBtn').click(function () {
 					var currItem = getItem(danielHaggerty.consultr_items, $(this).siblings('.consultrItemDescription').html());
-					$(window.parent.renderModal(".my-modal-class", "My modal content"));
+					$(window.parent.renderModal(".my-modal-class", currItem, {width: "500px"}));
 
 				})
 			});
