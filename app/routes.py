@@ -103,7 +103,7 @@ def api_rateCardInfo():
     rateCard.pop("_id",None)
     rateCardArr.append(rateCard)
   print(rateCardArr)  
-  returnObj = {"result":"sucess", "name":"", "img":"", "email": "", "about_me": "", "consultr_items":rateCardArr}
+  returnObj = {"result":"sucess", "name":"Daniel Haggerty", "img":"http://research.microsoft.com/en-us/groups/mldept/viola.jpg", "email": "daniel@haggerty.com", "about_me": "<h6>Header 1</h6><p>  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc non sagittis augue. Aliquam erat volutpat. Aliquam vitae orci at sapien iaculis egestas. </p><h6>Header 2</h6><p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc non sagittis augue. Aliquam erat volutpat. Aliquam vitae orci at sapien iaculis egestas. </p><h6>Header 3</h6><p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc non sagittis augue. Aliquam erat volutpat. Aliquam vitae orci at sapien iaculis egestas. </p><h6>Header 4</h6><p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc non sagittis augue. Aliquam erat volutpat. Aliquam vitae orci at sapien iaculis egestas. </p>", "consultr_items":rateCardArr}
   js = json.dumps(returnObj)    
   return Response(js, status=200, mimetype='application/json')
 
