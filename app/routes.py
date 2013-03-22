@@ -47,6 +47,10 @@ def editProfile():
 def editRateCard():
   return render_template('editRateCard.html')
 
+@app.route('/sampleWebsite')
+def sampleWebsite():
+  return redirect(url_for('static', filename='sampleWebsite.html'))
+
 @app.route('/processLogin')
 def processLogin():
   if 'email' not in request.args or 'password' not in request.args:
