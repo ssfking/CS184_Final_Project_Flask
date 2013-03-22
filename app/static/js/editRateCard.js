@@ -21,7 +21,7 @@ $(document).ready(function() {
 	    };
 	$.getJSON('/api/rateCardInfo', function(danielHaggerty) {
 		$('#accordion').hide();
-		if (typeof danielHaggerty != "undefined") {
+		if (danielHaggerty.consultr_items.length != 0) {
 			$.each(danielHaggerty.consultr_items[0].consultr_items, function (index, value) {
 				addItem(value.title, value.price, value.tagline, value.description, "", {prepend: false});
 			})
