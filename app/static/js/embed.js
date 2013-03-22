@@ -8,7 +8,7 @@ if (typeof jQuery == 'undefined') {
 
 function embedDiv() {
 	$(document).ready(function() {
-		$('#consultrRateCard').append('<iframe frameborder="0" src="http://localhost:5000/iframeTest" width="190px" height="350px"></iframe>');
+		$('#consultrRateCard').append('<iframe frameborder="0" src="http://www.consultr.io/iframeTest" width="190px" height="350px"></iframe>');
 	});
 }
 
